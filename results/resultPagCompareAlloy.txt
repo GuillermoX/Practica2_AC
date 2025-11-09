@@ -1,3 +1,7 @@
+Max instr: 100000000
+Sim path: ../../simplesim-3.0_acx2/sim-outorder
+Param control: \.bpred_dir_rate\b
+Param control: sim_IPC
 applu;art;gzip;mesa;twolf	applu;art;gzip;mesa;twolf
 0.8394;0.9149;0.8029;0.7141;0.7240	1.0528;0.0759;1.4096;1.4040;1.4706
 0.8463;0.9515;0.8485;0.7974;0.8178	1.0530;0.0759;1.4778;1.5537;1.6537

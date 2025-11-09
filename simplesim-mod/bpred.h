@@ -128,7 +128,7 @@ struct bpred_dir_t {
       int l1size;		/* level-1 size, number of history regs */
       int l2size;		/* level-2 size, number of pred states */
       int shift_width;		/* amount of history in level-1 shift regs */
-      int shift_g_width;		/* (mod): amount of history in global register */
+      int shift_g_width;	/* (mod): amount of history in global register */
       int xor;			/* history xor address flag */
       int *shiftregs;		/* level-1 history table */
       unsigned char *l2table;	/* level-2 prediction state table */

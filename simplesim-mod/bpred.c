@@ -265,7 +265,7 @@ bpred_dir_create (
       if (!glob_shift_width || glob_shift_width > 30)
 	fatal("global shift register width, `%d', must be non-zero and positive",
 	      shift_width);
-      pred_dir->config.two.shift_width = shift_width;
+      pred_dir->config.two.shift_g_width = glob_shift_width;
 
       pred_dir->config.two.xor = xor;
       pred_dir->config.two.shiftregs = calloc(l1size, sizeof(int));
@@ -619,11 +619,11 @@ bpred_dir_lookup(struct bpred_dir_t *pred_dir,	/* branch dir predictor inst */
         l1index = (baddr >> MD_BR_SHIFT) & (pred_dir->config.two.l1size - 1);
 
 	/* get the L2 (PHT) index*/
-	/* 1: get PaBHT history line -> PaBHR line & (mask of p 1s) */
+	/* 1: get PaBHT history line*/
         l2index = pred_dir->config.two.shiftregs[l1index];
-	/* 2: get GBHR history line -> GHBR & (mask of g 1s) */
+	/* 2: get GBHR history line*/
 	gbht_line = pred_dir->config.two.shiftglob_reg[0];	/* One line table */
-	/* 3 concatenate [@branch + GBHR ] PaBHT] */
+	/* 3 concatenate [@branch + GBHR + PaBHT] */
 	int p_g_width = pred_dir->config.two.shift_width + pred_dir->config.two.shift_g_width;
     	l2index =
       		l2index	/* PaBHT line */
